@@ -1,0 +1,17 @@
+Python 3.10.4 (tags/v3.10.4:9d38120, Mar 23 2022, 23:13:41) [MSC v.1929 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license()" for more information.
+
+
+
+import requests
+import json
+
+url = "https://ufrrjbr.webhook.office.com/webhookb2/ad31f33e-f425-4383-a9a5-010a1344e0e8@70dc6ec4-74b1-4c27-81f9-d02ee2e57396/IncomingWebhook/f1254856bd154fe9b5b0f8dbefe96125/73c4d60f-76e6-4735-b4f0-4533073d75f0"
+payload = {
+    "text": "Sample alert text"
+}
+headers = {
+    'Content-Type': 'application/json'
+}
+response = requests.post(url, headers=headers, data=json.dumps(payload))
+print(response.text.encode('utf8'))
